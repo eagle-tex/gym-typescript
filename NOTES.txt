@@ -1,0 +1,17 @@
+2023/09/17 (Sunday)
+
+This is a template setup for a React app with TypeScript
+
+The React app is setup with `vite`, not `create-react-app`
+
+Batteries included:
+- eslint with airbnb/typescript/react-hooks rules + eslintignore
+- prettier, prettierignore
+- lint-staged
+- husky
+- commitlint & commitizen + .czrc
+- stylelint
+- editorconfig
+- npmrc
+- vite.config.ts
+- tests with vitest (not jest)
