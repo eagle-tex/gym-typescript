@@ -1,4 +1,5 @@
 module.exports = {
+  root: true, // added 20230922
   env: {
     browser: true,
     es2021: true,
@@ -27,9 +28,10 @@ module.exports = {
     },
     ecmaVersion: 'latest',
     sourceType: 'module',
-    project: './tsconfig.json',
-    // project: ['./tsconfig.json', './tsconfig.node.json'],
-    // tsconfigRootDir: __dirname,
+    // project: './tsconfig.json',
+    project: ['./tsconfig.json', './tsconfig.node.json'],
+    tsconfigRootDir: __dirname,
+    // tsconfigRootDir: '.',
   },
   plugins: [
     'react',
@@ -95,9 +97,33 @@ module.exports = {
       '@typescript-eslint/parser': ['.ts', '.tsx'],
     },
     'import/resolver': {
-      // typescript: {
-      // project: ['./tsconfig.json'],
-      // },
+      typescript: {
+        alwaysTryTypes: true, // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
+        //   // Choose from one of the "project" configs below or omit to use <root>/tsconfig.json by default
+        //   // use <root>/path/to/folder/tsconfig.json
+        //   // "project": "path/to/folder",
+        project: ['./tsconfig.json'],
+      },
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx', '.d.ts'],
+        moduleDirectory: ['.', 'src', 'node_modules'], // or maybe "src/"
+        project: ['./tsconfig.node.json'],
+        paths: ['.'],
+      },
+      alias: {
+        map: [
+          ['@api', './src/api'],
+          ['@assets', './src/assets'],
+          ['@components', './src/components'],
+          ['@helpers', './src/helpers'],
+          ['@migrations', './src/migrations'],
+          ['@src', './src'],
+          ['@utils', './src/utils'],
+          // customize as you need
+        ],
+        extensions: ['.js', '.jsx', '.ts', '.tsx', '.d.ts'],
+      },
+      // project: {},
     },
     react: {
       version: 'detect',

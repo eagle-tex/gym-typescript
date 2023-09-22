@@ -6,7 +6,12 @@
     "module": "ESNext",
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
-    "types": ["vitest/globals", "@testing-library/jest-dom"],
+    "types": [
+      "vite/client",
+      "vitest/globals",
+      "@testing-library/jest-dom",
+      "node" // added "node" on 2023/09/22
+    ],
     /* Bundler mode */
     "moduleResolution": "bundler",
     // "moduleResolution": "node",
@@ -19,7 +24,23 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    /* Custom paths */
+    // "baseUrl": "./src", // for `import {Asset} from 'assets/Asset'`
+    "baseUrl": ".", // for `import {Asset} from '@assets/Asset'`, note the "@"
+    "paths": {
+      // "@": [
+      //   "src"
+      // ],
+      "@/*": ["./src/*"],
+      // "@assets": [
+      //   "src/assets"
+      // ],
+      "@assets/*": ["./src/assets/*"],
+      "@components": ["src/components"],
+      "@components/*": ["./src/components/*"],
+      "@helpers/*": ["./src/helpers/*"]
+    }
   },
   "include": [
     "vite.config.ts",
@@ -34,8 +55,8 @@
     "./src/setupTests.ts",
     ".prettierrc.cjs",
     ".eslintrc.cjs",
-    "src",
-    "./src"
+    "src"
+    // "./src"
   ],
   "references": [
     {

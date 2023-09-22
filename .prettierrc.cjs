@@ -1,3 +1,5 @@
+/* eslint-disable import/no-extraneous-dependencies */
+
 module.exports = {
   arrowParens: 'always',
   bracketSameLine: false,
@@ -15,4 +17,6 @@ module.exports = {
   tabWidth: 2,
   trailingComma: 'es5',
   useTabs: false,
+
+  plugins: [import('prettier-plugin-tailwindcss')],
 };
