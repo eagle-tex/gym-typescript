@@ -1,5 +1,5 @@
 module.exports = {
-  root: true, // added 20230922
+  // root: true, // added 20230922
   env: {
     browser: true,
     es2021: true,
@@ -28,8 +28,8 @@ module.exports = {
     },
     ecmaVersion: 'latest',
     sourceType: 'module',
-    // project: './tsconfig.json',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
+    project: './tsconfig.json',
+    // project: ['./tsconfig.json', './tsconfig.node.json'],
     // tsconfigRootDir: __dirname,
     // tsconfigRootDir: '.',
   },
@@ -78,15 +78,15 @@ module.exports = {
           'unknown', // <- unknown
         ],
         // https://medium.com/@diballesteros/how-to-quickly-configure-eslint-for-import-sorting-3a4017bd4853
-        pathGroups: [
-          { pattern: 'components', group: 'internal' },
-          { pattern: 'common', group: 'internal' },
-          { pattern: 'routes/**', group: 'internal' },
-          { pattern: 'assets/**', group: 'internal', position: 'after' },
-        ],
-        pathGroupsExcludedImportTypes: ['internal'],
-        'newlines-between': 'always',
+        // pathGroups: [
+        //   { pattern: 'components', group: 'internal' },
+        //   { pattern: 'common', group: 'internal' },
+        //   { pattern: 'routes/**', group: 'internal' },
+        //   { pattern: 'assets/**', group: 'internal', position: 'after' },
+        // ],
+        // pathGroupsExcludedImportTypes: ['internal'],
         // end of the part picked up from @diballesteros
+        'newlines-between': 'always',
         alphabetize: {
           /* sort in ascending order. Options: ["ignore", "asc", "desc"] */
           order: 'asc',
@@ -110,26 +110,27 @@ module.exports = {
         // always try to resolve types under `<root>@types` directory even if
         // it doesn't contain any source code, like `@types/unist`
         alwaysTryTypes: true,
-        // Choose from one of the "project" configs below or omit to use <root>/tsconfig.json by default
+        // Choose from one of the "project" configs below
+        // or omit to use <root>/tsconfig.json by default
         // use <root>/path/to/folder/tsconfig.json
         // "project": "path/to/folder",
         project: ['./tsconfig.json'],
       },
       node: {
-        extensions: ['.js', '.jsx', '.ts', '.tsx', '.d.ts'],
-        moduleDirectory: ['.', 'src', 'node_modules'], // or maybe "src/"
-        project: ['./tsconfig.node.json'],
+        // extensions: ['.js', '.jsx', '.ts', '.tsx', '.d.ts'],
+        // moduleDirectory: ['.', 'src', 'node_modules'], // or maybe "src/"
+        // project: ['./tsconfig.node.json'],
         paths: ['.'],
       },
       alias: {
         map: [
-          ['@api', './src/api'],
-          ['@assets', './src/assets'],
-          ['@components', './src/components'],
-          ['@helpers', './src/helpers'],
-          ['@migrations', './src/migrations'],
+          // ['@api', './src/api'],
+          // ['@assets', './src/assets'],
+          // ['@components', './src/components'],
+          // ['@helpers', './src/helpers'],
+          // ['@migrations', './src/migrations'],
           ['@src', './src'],
-          ['@utils', './src/utils'],
+          // ['@utils', './src/utils'],
           // customize as you need
         ],
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.d.ts'],
