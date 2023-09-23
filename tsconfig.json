@@ -38,8 +38,8 @@
       // ],
       "@assets/*": ["./src/assets/*"],
       "@components": ["src/components"],
-      "@components/*": ["./src/components/*"],
-      "@helpers/*": ["./src/helpers/*"]
+      "@components/*": ["./src/components/*"]
+      // "@helpers/*": ["./src/helpers/*"]
     }
   },
   "include": [
@@ -52,7 +52,8 @@
     "**/*.ts",
     "**/*.tsx",
     "@testing-library/jest-dom", // maybe?
-    "./src/setupTests.ts",
+    // "./src/setupTests.ts",
+    // "./src/__tests__/setupTests.ts",
     ".prettierrc.cjs",
     ".eslintrc.cjs",
     "src"

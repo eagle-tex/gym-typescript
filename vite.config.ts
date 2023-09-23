@@ -13,17 +13,31 @@ export default defineConfig({
   // plugins: [react()],
   plugins: [react(), tsconfigPaths()],
   resolve: {
-    // alias: [{ find: '@', replacement: path.resolve(__dirname, 'src') }],
-    alias: {
-      '@': path.resolve(__dirname, './src/'),
-      '@assets': `${path.resolve(__dirname, './src/assets/')}`,
-      '@components': `${path.resolve(__dirname, './src/components/')}`,
-      '@helpers': `${path.resolve(__dirname, './src/helpers/')}`,
-    },
+    alias: [
+      { find: '@', replacement: path.resolve(__dirname, 'src') },
+      {
+        find: '@assets',
+        replacement: path.resolve(__dirname, 'src', 'assets'),
+      },
+      {
+        find: '@components',
+        replacement: path.resolve(__dirname, 'src', 'components'),
+      },
+      {
+        find: '@helpers',
+        replacement: path.resolve(__dirname, 'src', 'helpers'),
+      },
+    ],
+    // alias: {
+    //   '@': path.resolve(__dirname, './src/'),
+    //   '@assets': `${path.resolve(__dirname, './src/assets/')}`,
+    //   '@components': `${path.resolve(__dirname, './src/components/')}`,
+    //   '@helpers': `${path.resolve(__dirname, './src/helpers/')}`,
+    // },
   },
   test: {
     globals: true,
     environment: 'jsdom',
-    setupFiles: ['./src/setupTests.ts'],
+    setupFiles: ['./src/__tests__/setupTests.ts'],
   },
 });
