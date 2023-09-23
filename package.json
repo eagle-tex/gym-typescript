@@ -17,7 +17,8 @@
     "prettier:fix": "npx prettier --write .",
     "stylelint:check": "stylelint \"**/*.css\"",
     "stylelint:fix": "stylelint --fix \"**/*.css\"",
-    "test": "vitest"
+    "test": "vitest",
+    "test:ui": "vitest --ui"
   },
   "dependencies": {
     "@heroicons/react": "^2.0.18",
@@ -39,6 +40,7 @@
     "@typescript-eslint/eslint-plugin": "^6.7.0",
     "@typescript-eslint/parser": "^6.7.0",
     "@vitejs/plugin-react": "^4.0.3",
+    "@vitest/ui": "^0.34.5",
     "autoprefixer": "^10.4.16",
     "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0",
