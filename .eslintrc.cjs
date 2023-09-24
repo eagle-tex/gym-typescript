@@ -14,11 +14,13 @@ module.exports = {
     'plugin:react/jsx-runtime', // try
     'plugin:jsx-a11y/recommended', // try
     'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/recommended-requiring-type-checking', // from Josh Goldberg video 20230924
     'plugin:prettier/recommended',
 
     // Extends two more configuration from "import" plugin
     'plugin:import/recommended',
     'plugin:import/typescript',
+    'prettier', // added 20230924 10:57
   ],
   overrides: [],
   parser: '@typescript-eslint/parser',
@@ -30,7 +32,7 @@ module.exports = {
     sourceType: 'module',
     project: './tsconfig.json',
     // project: ['./tsconfig.json', './tsconfig.node.json'],
-    // tsconfigRootDir: __dirname,
+    tsconfigRootDir: __dirname,
     // tsconfigRootDir: '.',
   },
   plugins: [
@@ -56,7 +58,7 @@ module.exports = {
       'error',
       {
         ignoreCase: false,
-        ignoreDeclarationSort: true, // don"t want to sort import lines, use eslint-plugin-import instead
+        ignoreDeclarationSort: true, // don't want to sort import lines, use eslint-plugin-import instead
         ignoreMemberSort: false,
         memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
         allowSeparatedGroups: true,
@@ -100,6 +102,16 @@ module.exports = {
       'error',
       { caseSensitive: false },
     ],
+
+    // https://laurieontech.com/posts/eslint/
+    'import/no-extraneous-dependencies': [
+      'error',
+      {
+        devDependencies: false,
+        optionalDependencies: false,
+        peerDependencies: false,
+      },
+    ],
   },
   settings: {
     'import/parsers': {
@@ -109,7 +121,7 @@ module.exports = {
       typescript: {
         // always try to resolve types under `<root>@types` directory even if
         // it doesn't contain any source code, like `@types/unist`
-        alwaysTryTypes: true,
+        // // alwaysTryTypes: true, // UNCOMMENT MAYBE
         // Choose from one of the "project" configs below
         // or omit to use <root>/tsconfig.json by default
         // use <root>/path/to/folder/tsconfig.json
@@ -122,19 +134,19 @@ module.exports = {
         // project: ['./tsconfig.node.json'],
         paths: ['.'],
       },
-      alias: {
-        map: [
-          // ['@api', './src/api'],
-          // ['@assets', './src/assets'],
-          // ['@components', './src/components'],
-          // ['@helpers', './src/helpers'],
-          // ['@migrations', './src/migrations'],
-          ['@src', './src'],
-          // ['@utils', './src/utils'],
-          // customize as you need
-        ],
-        extensions: ['.js', '.jsx', '.ts', '.tsx', '.d.ts'],
-      },
+      // alias: {
+      //   map: [
+      //     // ['@api', './src/api'],
+      //     // ['@assets', './src/assets'],
+      //     // ['@components', './src/components'],
+      //     // ['@helpers', './src/helpers'],
+      //     // ['@migrations', './src/migrations'],
+      //     // ['@src', './src'],
+      //     // ['@utils', './src/utils'],
+      //     // customize as you need
+      //   ],
+      //   extensions: ['.js', '.jsx', '.ts', '.tsx', '.d.ts'],
+      // },
       // project: {},
     },
     react: {
@@ -147,3 +159,5 @@ module.exports = {
 //   https://medium.com/weekly-webtips/how-to-sort-imports-like-a-pro-in-typescript-4ee8afd7258a
 //   and
 //   https://medium.com/@diballesteros/how-to-quickly-configure-eslint-for-import-sorting-3a4017bd4853
+//
+// https://laurieontech.com/posts/eslint/     for    'import/no-extraneous-dependencies'
