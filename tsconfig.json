@@ -6,11 +6,12 @@
     "module": "ESNext",
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
     "types": [
       "vite/client",
       "vitest/globals",
-      "@testing-library/jest-dom",
-      "node" // added "node" on 2023/09/22
+      "@testing-library/jest-dom"
+      // "node" // added "node" on 2023/09/22
     ],
     /* Bundler mode */
     "moduleResolution": "bundler",
@@ -25,6 +26,7 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
     /* Custom paths */
     // "baseUrl": "./src", // for `import {Asset} from 'assets/Asset'`
     "baseUrl": ".", // for `import {Asset} from '@assets/Asset'`, note the "@"
@@ -32,13 +34,13 @@
       // "@": [
       //   "src"
       // ],
-      "@/*": ["./src/*"],
+      "@/*": ["./src/*"]
       // "@assets": [
       //   "src/assets"
       // ],
-      "@assets/*": ["./src/assets/*"],
-      "@components": ["src/components"],
-      "@components/*": ["./src/components/*"]
+      // "@assets/*": ["./src/assets/*"],
+      // "@components": ["src/components"],
+      // "@components/*": ["./src/components/*"]
       // "@helpers/*": ["./src/helpers/*"]
     }
   },
